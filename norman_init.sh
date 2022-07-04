@@ -39,7 +39,7 @@ python3 -m pip install setuptools wheel -U
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cp .vimrc ~/.vimrc
 
-function Docker() {
+function docker() {
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
 }
@@ -54,15 +54,15 @@ if [[ $DOCKER -eq 0 && $CPU -eq 0 ]] ; then
 fi
 
 if [[ $DOCKER -eq 1 && $CPU -eq 1 ]] ; then
-    Docker
-    # sudo docker run --shm-size=64G -it -p 8888:8888 autogluon/autogluon:0.4.0-cpu-jupyter-ubuntu20.04-py3.8
-    sudo docker pull autogluon/autogluon:0.4.0-cpu-jupyter-ubuntu20.04-py3.8
+    docker
+    sudo docker run --shm-size=64G -it -p 8888:8888 autogluon/autogluon:0.4.0-cpu-jupyter-ubuntu20.04-py3.8
+    # sudo docker pull autogluon/autogluon:0.4.0-cpu-jupyter-ubuntu20.04-py3.8
 fi
 
 if [[ $DOCKER -eq 1 && $CPU -eq 0 ]] ; then
-    Docker
-    # sudo docker run --gpus all --shm-size=64G -it -p 8888:8888 autogluon/autogluon:0.4.0-rapids22.04-cuda11.2-jupyter-ubuntu20.04-py3.8
-    sudo docker pull autogluon/autogluon:0.4.0-rapids22.04-cuda11.2-jupyter-ubuntu20.04-py3.8
+    docker
+    sudo docker run --gpus all --shm-size=64G -it -p 8888:8888 autogluon/autogluon:0.4.0-rapids22.04-cuda11.2-jupyter-ubuntu20.04-py3.8
+    # sudo docker pull autogluon/autogluon:0.4.0-rapids22.04-cuda11.2-jupyter-ubuntu20.04-py3.8
 fi
 
 sudo apt autoremove -y
