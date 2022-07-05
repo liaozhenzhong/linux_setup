@@ -1,5 +1,5 @@
 #!/bin/bash
-# exec &>> your_file.log
+exec &>> installation.log
 
 usage() {
     echo \
@@ -28,11 +28,7 @@ do
 done
 
 sudo apt update
-sudo apt install tmux -y
-sudo apt install vim -y
-sudo apt install mc -y
-sudo apt install build-essential -y
-sudo apt install python3-pip -y
+sudo apt install tmux vim mc build-essential python3-pip -y
 python3 -m pip install pip -U
 python3 -m pip install setuptools wheel -U
 
