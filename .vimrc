@@ -36,6 +36,6 @@ map <C-BS> <C-W>
 
 command W w
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/autoload')
 Plug 'ervandew/supertab'
 call plug#end()
